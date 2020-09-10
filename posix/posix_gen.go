@@ -89,6 +89,7 @@ fi
 set -e
 set -x
 
+git fetch --tags
 git fetch ${FLAGS} origin +refs/heads/${DRONE_COMMIT_BRANCH}:
 git checkout ${DRONE_COMMIT_SHA} -b ${DRONE_COMMIT_BRANCH}
 `
@@ -112,6 +113,7 @@ set -x
 git fetch ${FLAGS} origin +refs/heads/${DRONE_COMMIT_BRANCH}:
 git checkout ${DRONE_COMMIT_BRANCH}
 
+git fetch --tags
 git fetch origin ${DRONE_COMMIT_REF}:
 git merge ${DRONE_COMMIT_SHA}
 `
@@ -132,7 +134,7 @@ fi
 set -e
 set -x
 
+git fetch --tags
 git fetch ${FLAGS} origin +refs/tags/${DRONE_TAG}:
 git checkout -qf FETCH_HEAD
 `
-

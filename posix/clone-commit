@@ -18,7 +18,7 @@ fi
 if [[ -z "${DRONE_COMMIT_BRANCH}" ]]; then
 	set -e
 	set -x
-	git fetch origin
+	git fetch origin --tags
 	git checkout -qf ${DRONE_COMMIT_SHA}
 	exit 0
 fi
@@ -26,5 +26,6 @@ fi
 set -e
 set -x
 
+git fetch --tags
 git fetch ${FLAGS} origin +refs/heads/${DRONE_COMMIT_BRANCH}:
 git checkout ${DRONE_COMMIT_SHA} -b ${DRONE_COMMIT_BRANCH}

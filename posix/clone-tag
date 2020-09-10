@@ -13,5 +13,6 @@ fi
 set -e
 set -x
 
+git fetch --tags
 git fetch ${FLAGS} origin +refs/tags/${DRONE_TAG}:
 git checkout -qf FETCH_HEAD

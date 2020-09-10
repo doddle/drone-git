@@ -14,6 +14,7 @@ set -e
 set -x
 
 git fetch ${FLAGS} origin +refs/heads/${DRONE_COMMIT_BRANCH}:
+git fetch --tags
 git checkout ${DRONE_COMMIT_BRANCH}
 
 git fetch origin ${DRONE_COMMIT_REF}:
